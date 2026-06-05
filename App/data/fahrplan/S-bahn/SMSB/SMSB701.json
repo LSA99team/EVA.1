@@ -1,0 +1,102 @@
+{
+  "zugtyp": "S-Bahn",
+  "liniennummer": "701",
+  "startstation_nr": 1,
+  "startstation_name": "Berlin Hbf",
+  "zielstation_nr": 4,
+  "zielstation_name": "Potsdam Hbf",
+  "fahrten": [
+    {
+      "variant": "0701",
+      "uhrzeit": "06:30",
+      "gueltig_von": "2026-01-01",
+      "gueltig_bis": "2026-01-31",
+      "wochentage": ["Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+      "halte": [
+        {
+          "halt_nummer": 1,
+          "station_nr": 1,
+          "station_name": "Berlin Hbf",
+          "ankunft": null,
+          "abfahrt": "06:30",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 2,
+          "station_nr": 3,
+          "station_name": "Berlin Charlottenburg",
+          "ankunft": "06:40",
+          "abfahrt": "06:41",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 3,
+          "station_nr": 5,
+          "station_name": "Potsdam Park Sanssouci",
+          "ankunft": "07:00",
+          "abfahrt": "07:01",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 4,
+          "station_nr": 4,
+          "station_name": "Potsdam Hbf",
+          "ankunft": "07:15",
+          "abfahrt": null,
+          "versp_standard": 0
+        }
+      ],
+      "ausfaelle": [],
+      "zusatzhalt": []
+    },
+    {
+      "variant": "0702",
+      "uhrzeit": "07:30",
+      "gueltig_von": "2026-01-01",
+      "gueltig_bis": "2026-01-31",
+      "wochentage": ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
+      "halte": [
+        {
+          "halt_nummer": 1,
+          "station_nr": 1,
+          "station_name": "Berlin Hbf",
+          "ankunft": null,
+          "abfahrt": "07:30",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 2,
+          "station_nr": 3,
+          "station_name": "Berlin Charlottenburg",
+          "ankunft": "07:40",
+          "abfahrt": "07:41",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 3,
+          "station_nr": 5,
+          "station_name": "Potsdam Park Sanssouci",
+          "ankunft": "08:00",
+          "abfahrt": "08:01",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 4,
+          "station_nr": 4,
+          "station_name": "Potsdam Hbf",
+          "ankunft": "08:15",
+          "abfahrt": null,
+          "versp_standard": 0
+        }
+      ],
+      "ausfaelle": [
+        {
+          "datum": "2026-01-10",
+          "typ": "halt",
+          "halt_nummer": 2
+        }
+      ],
+      "zusatzhalt": []
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "zugtyp": "RB",
+  "liniennummer": "201",
+  "startstation_nr": 2,
+  "startstation_name": "Berlin Friedrichstraße",
+  "zielstation_nr": 9,
+  "zielstation_name": "Frankfurt am Main Hbf",
+  "fahrten": [
+    {
+      "variant": "0201",
+      "uhrzeit": "10:00",
+      "gueltig_von": "2026-01-01",
+      "gueltig_bis": "2026-01-31",
+      "wochentage": ["Mo", "Di", "Mi", "Do", "Fr"],
+      "halte": [
+        {
+          "halt_nummer": 1,
+          "station_nr": 2,
+          "station_name": "Berlin Friedrichstraße",
+          "ankunft": null,
+          "abfahrt": "10:00",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 2,
+          "station_nr": 4,
+          "station_name": "Potsdam Hbf",
+          "ankunft": "10:45",
+          "abfahrt": "10:46",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 3,
+          "station_nr": 9,
+          "station_name": "Frankfurt am Main Hbf",
+          "ankunft": "13:30",
+          "abfahrt": null,
+          "versp_standard": 0
+        }
+      ],
+      "ausfaelle": [],
+      "zusatzhalt": []
+    }
+  ]
+}

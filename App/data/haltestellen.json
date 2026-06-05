@@ -1,0 +1,154 @@
+{
+  "haltestellen": [
+    {
+      "nummer": 1,
+      "name": "Berlin Hbf",
+      "region": "Berlin"
+    },
+    {
+      "nummer": 2,
+      "name": "Berlin Friedrichstraße",
+      "region": "Berlin"
+    },
+    {
+      "nummer": 3,
+      "name": "Berlin Charlottenburg",
+      "region": "Berlin"
+    },
+    {
+      "nummer": 4,
+      "name": "Potsdam Hbf",
+      "region": "Brandenburg"
+    },
+    {
+      "nummer": 5,
+      "name": "Potsdam Park Sanssouci",
+      "region": "Brandenburg"
+    },
+    {
+      "nummer": 6,
+      "name": "Potsdam Charlottenhof",
+      "region": "Brandenburg"
+    },
+    {
+      "nummer": 7,
+      "name": "Leipzig Hbf",
+      "region": "Sachsen"
+    },
+    {
+      "nummer": 8,
+      "name": "Leipzig Connewitz",
+      "region": "Sachsen"
+    },
+    {
+      "nummer": 9,
+      "name": "Frankfurt am Main Hbf",
+      "region": "Hessen"
+    },
+    {
+      "nummer": 10,
+      "name": "Frankfurt Südbahnhof",
+      "region": "Hessen"
+    },
+    {
+      "nummer": 11,
+      "name": "München Hbf",
+      "region": "Bayern"
+    },
+    {
+      "nummer": 12,
+      "name": "München Pasing",
+      "region": "Bayern"
+    },
+    {
+      "nummer": 13,
+      "name": "Köln Hbf",
+      "region": "Nordrhein-Westfalen"
+    },
+    {
+      "nummer": 14,
+      "name": "Köln Messe/Deutz",
+      "region": "Nordrhein-Westfalen"
+    },
+    {
+      "nummer": 15,
+      "name": "Hamburg Hbf",
+      "region": "Hamburg"
+    },
+    {
+      "nummer": 16,
+      "name": "Hamburg Altona",
+      "region": "Hamburg"
+    },
+    {
+      "nummer": 17,
+      "name": "Stuttgart Hbf",
+      "region": "Baden-Württemberg"
+    },
+    {
+      "nummer": 18,
+      "name": "Stuttgart Bad Cannstatt",
+      "region": "Baden-Württemberg"
+    },
+    {
+      "nummer": 19,
+      "name": "Hannover Hbf",
+      "region": "Niedersachsen"
+    },
+    {
+      "nummer": 20,
+      "name": "Hannover Linden/Fischerhof",
+      "region": "Niedersachsen"
+    },
+    {
+      "nummer": 21,
+      "name": "Düsseldorf Hbf",
+      "region": "Nordrhein-Westfalen"
+    },
+    {
+      "nummer": 22,
+      "name": "Düsseldorf Flughafen",
+      "region": "Nordrhein-Westfalen"
+    },
+    {
+      "nummer": 23,
+      "name": "Dresden Hbf",
+      "region": "Sachsen"
+    },
+    {
+      "nummer": 24,
+      "name": "Dresden Neustadt",
+      "region": "Sachsen"
+    },
+    {
+      "nummer": 25,
+      "name": "Nürnberg Hbf",
+      "region": "Bayern"
+    },
+    {
+      "nummer": 26,
+      "name": "Augsburg Hbf",
+      "region": "Bayern"
+    },
+    {
+      "nummer": 27,
+      "name": "Mannheim Hbf",
+      "region": "Baden-Württemberg"
+    },
+    {
+      "nummer": 28,
+      "name": "Mainz Hbf",
+      "region": "Rheinland-Pfalz"
+    },
+    {
+      "nummer": 29,
+      "name": "Koblenz Hbf",
+      "region": "Rheinland-Pfalz"
+    },
+    {
+      "nummer": 30,
+      "name": "Trier Hbf",
+      "region": "Rheinland-Pfalz"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "zugtyp": "RE",
+  "liniennummer": "103",
+  "startstation_nr": 1,
+  "startstation_name": "Berlin Hbf",
+  "zielstation_nr": 9,
+  "zielstation_name": "Frankfurt am Main Hbf",
+  "fahrten": [
+    {
+      "variant": "0103",
+      "uhrzeit": "09:00",
+      "gueltig_von": "2026-01-01",
+      "gueltig_bis": "2026-01-31",
+      "wochentage": ["Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+      "halte": [
+        {
+          "halt_nummer": 1,
+          "station_nr": 1,
+          "station_name": "Berlin Hbf",
+          "ankunft": null,
+          "abfahrt": "09:00",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 2,
+          "station_nr": 2,
+          "station_name": "Berlin Friedrichstraße",
+          "ankunft": "09:05",
+          "abfahrt": "09:06",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 3,
+          "station_nr": 4,
+          "station_name": "Potsdam Hbf",
+          "ankunft": "09:30",
+          "abfahrt": "09:31",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 4,
+          "station_nr": 7,
+          "station_name": "Leipzig Hbf",
+          "ankunft": "11:45",
+          "abfahrt": "11:46",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 5,
+          "station_nr": 9,
+          "station_name": "Frankfurt am Main Hbf",
+          "ankunft": "14:00",
+          "abfahrt": null,
+          "versp_standard": 0
+        }
+      ],
+      "ausfaelle": [],
+      "zusatzhalt": []
+    },
+    {
+      "variant": "0104",
+      "uhrzeit": "15:00",
+      "gueltig_von": "2026-01-01",
+      "gueltig_bis": "2026-01-31",
+      "wochentage": ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
+      "halte": [
+        {
+          "halt_nummer": 1,
+          "station_nr": 1,
+          "station_name": "Berlin Hbf",
+          "ankunft": null,
+          "abfahrt": "15:00",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 2,
+          "station_nr": 2,
+          "station_name": "Berlin Friedrichstraße",
+          "ankunft": "15:05",
+          "abfahrt": "15:06",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 3,
+          "station_nr": 4,
+          "station_name": "Potsdam Hbf",
+          "ankunft": "15:30",
+          "abfahrt": "15:31",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 4,
+          "station_nr": 7,
+          "station_name": "Leipzig Hbf",
+          "ankunft": "17:45",
+          "abfahrt": "17:46",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 5,
+          "station_nr": 9,
+          "station_name": "Frankfurt am Main Hbf",
+          "ankunft": "20:00",
+          "abfahrt": null,
+          "versp_standard": 0
+        }
+      ],
+      "ausfaelle": [
+        {
+          "datum": "2026-01-01",
+          "typ": "ganz"
+        }
+      ],
+      "zusatzhalt": []
+    }
+  ]
+}

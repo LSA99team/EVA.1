@@ -1,0 +1,53 @@
+{
+  "zugtyp": "SSMB",
+  "liniennummer": "501",
+  "startstation_nr": 1,
+  "startstation_name": "Berlin Hbf",
+  "zielstation_nr": 11,
+  "zielstation_name": "München Hbf",
+  "fahrten": [
+    {
+      "variant": "0501",
+      "uhrzeit": "12:00",
+      "gueltig_von": "2026-01-01",
+      "gueltig_bis": "2026-01-31",
+      "wochentage": ["Di", "Do"],
+      "halte": [
+        {
+          "halt_nummer": 1,
+          "station_nr": 1,
+          "station_name": "Berlin Hbf",
+          "ankunft": null,
+          "abfahrt": "12:00",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 2,
+          "station_nr": 7,
+          "station_name": "Leipzig Hbf",
+          "ankunft": "14:00",
+          "abfahrt": "14:05",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 3,
+          "station_nr": 25,
+          "station_name": "Nürnberg Hbf",
+          "ankunft": "16:00",
+          "abfahrt": "16:05",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 4,
+          "station_nr": 11,
+          "station_name": "München Hbf",
+          "ankunft": "18:30",
+          "abfahrt": null,
+          "versp_standard": 0
+        }
+      ],
+      "ausfaelle": [],
+      "zusatzhalt": []
+    }
+  ]
+}

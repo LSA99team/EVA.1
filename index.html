@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verkehrsbetriebe App</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #EC0016 0%, #b8000d 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .container { padding: 40px; }
+
+        .logo { font-size: 48px; margin-bottom: 16px; }
+
+        h1 { font-size: 28px; margin-bottom: 8px; }
+
+        p { font-size: 16px; opacity: 0.85; margin-bottom: 40px; }
+
+        .countdown-circle {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        svg { transform: rotate(-90deg); }
+
+        .circle-bg {
+            fill: none;
+            stroke: rgba(255,255,255,0.2);
+            stroke-width: 6;
+        }
+
+        .circle-progress {
+            fill: none;
+            stroke: white;
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-dasharray: 314;
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 1s linear;
+        }
+
+        .countdown-number {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 42px;
+            font-weight: bold;
+        }
+
+        .redirect-btn {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            border: 2px solid rgba(255,255,255,0.4);
+            transition: background 0.3s;
+        }
+
+        .redirect-btn:hover { background: rgba(255,255,255,0.35); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🚆</div>
+        <h1>Verkehrsbetriebe App</h1>
+        <p>Du wirst automatisch weitergeleitet...</p>
+
+        <div class="countdown-circle">
+            <svg width="120" height="120" viewBox="0 0 120 120">
+                <circle class="circle-bg" cx="60" cy="60" r="50"/>
+                <circle class="circle-progress" id="progressCircle" cx="60" cy="60" r="50"/>
+            </svg>
+            <div class="countdown-number" id="countdownNumber">5</div>
+        </div>
+
+        <a href="unternehmen/index.html" class="redirect-btn">Jetzt weiterleiten →</a>
+    </div>
+
+    <script>
+        const total = 5;
+        const circumference = 314;
+        const circle = document.getElementById('progressCircle');
+        const number = document.getElementById('countdownNumber');
+        let remaining = total;
+
+        function update() {
+            const progress = remaining / total;
+            circle.style.strokeDashoffset = circumference * (1 - progress);
+            number.textContent = remaining;
+
+            if (remaining <= 0) {
+                window.location.href = 'unternehmen/index.html';
+                return;
+            }
+            remaining--;
+            setTimeout(update, 1000);
+        }
+
+        setTimeout(update, 100);
+    </script>
+</body>
+</html>

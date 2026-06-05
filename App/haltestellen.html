@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haltestellen Übersicht</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --db-red: #EC0016;
+            --db-dark: #1a1a1a;
+            --db-light-gray: #f5f5f5;
+            --db-medium-gray: #e0e0e0;
+            --db-text: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--db-light-gray);
+            color: var(--db-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--db-red) 0%, #b8000d 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: var(--db-red);
+            color: white;
+        }
+
+        th {
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--db-light-gray);
+        }
+
+        tbody tr:hover {
+            background-color: var(--db-light-gray);
+        }
+
+        .halt-number {
+            background-color: var(--db-red);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .halt-name {
+            font-weight: 600;
+            color: var(--db-text);
+        }
+
+        .halt-region {
+            color: #666;
+            font-size: 13px;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .header {
+                padding: 30px 15px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            table {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚉 Haltestellen Übersicht</h1>
+            <p>Alle verfügbaren Bahnhöfe und Haltestellen mit Nummern</p>
+            <a href="index.html" class="back-button">← Zurück zur Suche</a>
+        </div>
+
+        <div class="table-container">
+            <table id="haltestellenTable">
+                <thead>
+                    <tr>
+                        <th>Nummer</th>
+                        <th>Haltestelle</th>
+                        <th>Region</th>
+                    </tr>
+                </thead>
+                <tbody id="haltestellenBody">
+                    <tr>
+                        <td colspan="3" class="no-data">Laden...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', loadHaltestellen);
+
+        async function loadHaltestellen() {
+            try {
+                const response = await fetch('data/haltestellen.json');
+                const data = await response.json();
+                displayHaltestellen(data.haltestellen);
+            } catch (error) {
+                console.error('Fehler beim Laden der Haltestellen:', error);
+                document.getElementById('haltestellenBody').innerHTML = 
+                    '<tr><td colspan="3" class="no-data">❌ Fehler beim Laden der Haltestellen</td></tr>';
+            }
+        }
+
+        function displayHaltestellen(haltestellen) {
+            const tbody = document.getElementById('haltestellenBody');
+            
+            if (!haltestellen || haltestellen.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3" class="no-data">Keine Haltestellen gefunden</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = haltestellen.map(halt => `
+                <tr>
+                    <td><span class="halt-number">${halt.nummer}</span></td>
+                    <td><span class="halt-name">${halt.name}</span></td>
+                    <td><span class="halt-region">${halt.region}</span></td>
+                </tr>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

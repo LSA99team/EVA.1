@@ -1,0 +1,61 @@
+{
+  "zugtyp": "NSMB",
+  "liniennummer": "601",
+  "startstation_nr": 15,
+  "startstation_name": "Hamburg Hbf",
+  "zielstation_nr": 11,
+  "zielstation_name": "München Hbf",
+  "fahrten": [
+    {
+      "variant": "0601",
+      "uhrzeit": "07:00",
+      "gueltig_von": "2026-01-01",
+      "gueltig_bis": "2026-01-31",
+      "wochentage": ["Mo", "Mi", "Fr"],
+      "halte": [
+        {
+          "halt_nummer": 1,
+          "station_nr": 15,
+          "station_name": "Hamburg Hbf",
+          "ankunft": null,
+          "abfahrt": "07:00",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 2,
+          "station_nr": 1,
+          "station_name": "Berlin Hbf",
+          "ankunft": "09:45",
+          "abfahrt": "09:50",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 3,
+          "station_nr": 7,
+          "station_name": "Leipzig Hbf",
+          "ankunft": "11:45",
+          "abfahrt": "11:50",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 4,
+          "station_nr": 25,
+          "station_name": "Nürnberg Hbf",
+          "ankunft": "14:00",
+          "abfahrt": "14:05",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 5,
+          "station_nr": 11,
+          "station_name": "München Hbf",
+          "ankunft": "16:30",
+          "abfahrt": null,
+          "versp_standard": 0
+        }
+      ],
+      "ausfaelle": [],
+      "zusatzhalt": []
+    }
+  ]
+}
