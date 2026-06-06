@@ -34,6 +34,7 @@
           "station_nr": 6,
           "station_name": "Grünfels",
           "ankunft": "06:55",
+          "abfahrt": null,
           "versp_standard": 0
         }
       ],
@@ -68,6 +69,7 @@
           "station_nr": 1,
           "station_name": "Schwamm Stadt Hauptbahnhof",
           "ankunft": "07:45",
+          "abfahrt": null,
           "versp_standard": 0
         }
       ],
