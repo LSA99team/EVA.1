@@ -162,8 +162,8 @@ async function performSearch() {
     // Validiere Nummern (1-30)
     const start = parseInt(startStationNum);
     const end = parseInt(endStationNum);
-    if (isNaN(start) || isNaN(end) || start < 1 || start > 30 || end < 1 || end > 30) {
-        alert('Gebe Nummern zwischen 1 und 30 ein.');
+    if (isNaN(start) || isNaN(end) || start < 1 || start > 30 || end < 1 || end > 999) {
+        alert('Gebe Nummern zwischen 1 und 999 ein.');
         return;
     }
     
