@@ -2,153 +2,143 @@
   "haltestellen": [
     {
       "nummer": 1,
-      "name": "Berlin Hbf",
-      "region": "Berlin"
+      "name": "Schwamm Stadt Hauptbahnhof",
+      "region": "Schwammi Tal"
     },
     {
       "nummer": 2,
-      "name": "Berlin Friedrichstraße",
-      "region": "Berlin"
+      "name": "Schwamm Stadt Süd",
+      "region": "Schwammi Tal"
     },
     {
       "nummer": 3,
-      "name": "Berlin Charlottenburg",
-      "region": "Berlin"
+      "name": "Schwamm Stadt Flughafen",
+      "region": "Schwammi Tal"
     },
     {
       "nummer": 4,
-      "name": "Potsdam Hbf",
-      "region": "Brandenburg"
+      "name": "Moosheim Bahnhof",
+      "region": "Schwammi Tal"
     },
     {
       "nummer": 5,
-      "name": "Potsdam Park Sanssouci",
-      "region": "Brandenburg"
+      "name": "Talbrück",
+      "region": "Schwammi Tal"
     },
     {
       "nummer": 6,
-      "name": "Potsdam Charlottenhof",
-      "region": "Brandenburg"
+      "name": "Grünfels",
+      "region": "Schwammi Tal"
     },
     {
       "nummer": 7,
-      "name": "Leipzig Hbf",
-      "region": "Sachsen"
+      "name": "Schwamm Burg Hauptbahnhof",
+      "region": "Schwammi Tal"
     },
     {
       "nummer": 8,
-      "name": "Leipzig Connewitz",
-      "region": "Sachsen"
+      "name": "Schwamm Burg Drachenhöhle",
+      "region": "Schwammi Tal"
     },
     {
       "nummer": 9,
-      "name": "Frankfurt am Main Hbf",
-      "region": "Hessen"
+      "name": "Könige an der Schwurl Hauptbahnhof",
+      "region": "Könige"
     },
     {
       "nummer": 10,
-      "name": "Frankfurt Südbahnhof",
-      "region": "Hessen"
+      "name": "Könige an der Schwurl - Strandpromenade",
+      "region": "Könige"
     },
     {
       "nummer": 11,
-      "name": "München Hbf",
-      "region": "Bayern"
+      "name": "Könige Burg Bahnhof",
+      "region": "Könige"
     },
     {
       "nummer": 12,
-      "name": "München Pasing",
-      "region": "Bayern"
+      "name": "Rotenfels Hauptbahnhof",
+      "region": "Könige"
     },
     {
       "nummer": 13,
-      "name": "Köln Hbf",
-      "region": "Nordrhein-Westfalen"
+      "name": "Rotenfels Waldlosier",
+      "region": "Könige"
     },
     {
       "nummer": 14,
-      "name": "Köln Messe/Deutz",
-      "region": "Nordrhein-Westfalen"
+      "name": "Vulumina Hauptbahnhof",
+      "region": "Luminia"
     },
     {
       "nummer": 15,
-      "name": "Hamburg Hbf",
-      "region": "Hamburg"
+      "name": "Luminara",
+      "region": "Luminia"
     },
     {
       "nummer": 16,
-      "name": "Hamburg Altona",
-      "region": "Hamburg"
+      "name": "Florenia",
+      "region": "Luminia"
     },
     {
       "nummer": 17,
-      "name": "Stuttgart Hbf",
-      "region": "Baden-Württemberg"
+      "name": "Pinkhorst Bahnhof",
+      "region": "Luminia"
     },
     {
       "nummer": 18,
-      "name": "Stuttgart Bad Cannstatt",
-      "region": "Baden-Württemberg"
+      "name": "Evolia Hauptbahnhof",
+      "region": "Evolino"
     },
     {
       "nummer": 19,
-      "name": "Hannover Hbf",
-      "region": "Niedersachsen"
+      "name": "Neurolon",
+      "region": "Evolino"
     },
     {
       "nummer": 20,
-      "name": "Hannover Linden/Fischerhof",
-      "region": "Niedersachsen"
+      "name": "Velastra",
+      "region": "Evolino"
     },
     {
       "nummer": 21,
-      "name": "Düsseldorf Hbf",
-      "region": "Nordrhein-Westfalen"
+      "name": "Lilaquell Bahnhof",
+      "region": "Evolino"
     },
     {
       "nummer": 22,
-      "name": "Düsseldorf Flughafen",
-      "region": "Nordrhein-Westfalen"
+      "name": "Lilaquell West",
+      "region": "Evolino"
     },
-    {
+   {
       "nummer": 23,
-      "name": "Dresden Hbf",
-      "region": "Sachsen"
+      "name": "Hongara Hauptbahnhof",
+      "region": "Hong Schwamm Kong"
     },
     {
       "nummer": 24,
-      "name": "Dresden Neustadt",
-      "region": "Sachsen"
+      "name": "Hongara - Am Automobile Hongara",
+      "region": "Hong Schwamm Kong"
     },
     {
       "nummer": 25,
-      "name": "Nürnberg Hbf",
-      "region": "Bayern"
+      "name": "Schwamm Port",
+      "region": "Hong Schwamm Kong"
     },
     {
       "nummer": 26,
-      "name": "Augsburg Hbf",
-      "region": "Bayern"
+      "name": "Konghalla",
+      "region": "Hong Schwamm Kong"
     },
     {
       "nummer": 27,
-      "name": "Mannheim Hbf",
-      "region": "Baden-Württemberg"
+      "name": "Blauquai Bahnhof",
+      "region": "Hong Schwamm Kong"
     },
     {
       "nummer": 28,
-      "name": "Mainz Hbf",
-      "region": "Rheinland-Pfalz"
-    },
-    {
-      "nummer": 29,
-      "name": "Koblenz Hbf",
-      "region": "Rheinland-Pfalz"
-    },
-    {
-      "nummer": 30,
-      "name": "Trier Hbf",
-      "region": "Rheinland-Pfalz"
+      "name": "Blauquai, Pauper (im Dorf)",
+      "region": "Hong Schwamm Kong"
     }
   ]
 }
