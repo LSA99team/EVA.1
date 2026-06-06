@@ -2,107 +2,90 @@
   "zugtyp": "RB",
   "liniennummer": "101",
   "startstation_nr": 1,
-  "startstation_name": "Berlin Hbf",
-  "zielstation_nr": 4,
-  "zielstation_name": "Potsdam Hbf",
+  "startstation_name": "Schwamm Stadt Hauptbahnhof",
+  "zielstation_nr": 6,
+  "zielstation_name": "Grünfels",
   "fahrten": [
     {
-      "variant": "0101",
-      "uhrzeit": "08:00",
-      "gueltig_von": "2026-01-01",
-      "gueltig_bis": "2026-01-31",
-      "wochentage": ["Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+      "variant": "1",
+      "uhrzeit": "06:05",
+      "gueltig_von": "2026-06-01",
+      "gueltig_bis": "2026-06-31",
+      "wochentage": ["Mo", "Mi", "Do", "Fr", "Sa", "So"],
       "halte": [
         {
           "halt_nummer": 1,
           "station_nr": 1,
-          "station_name": "Berlin Hbf",
+          "station_name": "Schwamm Stadt Hauptbahnhof",
           "ankunft": null,
-          "abfahrt": "08:00",
+          "abfahrt": "06:05",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 2,
+          "station_nr": 4,
+          "station_name": "Moosheim Bahnhof",
+          "ankunft": "06:25",
+          "abfahrt": "06:30",
+          "versp_standard": 0
+        },
+        {
+          "halt_nummer": 3,
+          "station_nr": 6,
+          "station_name": "Grünfels",
+          "ankunft": "06:55",
+          "versp_standard": 0
+        }
+      ],
+      "ausfaelle": [],
+      "zusatzhalt": []
+    },
+    {
+      "variant": "2",
+      "uhrzeit": "07:00",
+      "gueltig_von": "2026-06-01",
+      "gueltig_bis": "2026-06-31",
+      "wochentage": ["Mo", "Mi", "Do", "Fr", "Sa", "So"],
+      "halte": [
+        {
+          "halt_nummer": 1,
+          "station_nr": 6,
+          "station_name": "Grünfels",
+          "ankunft": null,
+          "abfahrt": "07:00",
           "versp_standard": 0
         },
         {
           "halt_nummer": 2,
           "station_nr": 3,
-          "station_name": "Berlin Charlottenburg",
-          "ankunft": "08:14",
-          "abfahrt": "08:15",
+          "station_name": "Moosheim Bahnhof",
+          "ankunft": "07:20",
+          "abfahrt": "07:25",
           "versp_standard": 0
         },
         {
           "halt_nummer": 3,
-          "station_nr": 5,
-          "station_name": "Potsdam Park Sanssouci",
-          "ankunft": "08:35",
-          "abfahrt": "08:36",
-          "versp_standard": 0
-        },
-        {
-          "halt_nummer": 4,
-          "station_nr": 4,
-          "station_name": "Potsdam Hbf",
-          "ankunft": "08:50",
-          "abfahrt": null,
+          "station_nr": 1,
+          "station_name": "Schwamm Stadt Hauptbahnhof",
+          "ankunft": "07:45",
           "versp_standard": 0
         }
       ],
       "ausfaelle": [
         {
-          "datum": "2026-01-03",
-          "typ": "ganz"
+          "datum": "2026-06-06",
+          "typ": "halt",
+          "halt_nummer": 2
         }
       ],
-      "zusatzhalt": []
-    },
-    {
-      "variant": "0102",
-      "uhrzeit": "14:00",
-      "gueltig_von": "2026-01-01",
-      "gueltig_bis": "2026-01-31",
-      "wochentage": ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
-      "halte": [
-        {
-          "halt_nummer": 1,
-          "station_nr": 1,
-          "station_name": "Berlin Hbf",
-          "ankunft": null,
-          "abfahrt": "14:00",
-          "versp_standard": 0
-        },
-        {
-          "halt_nummer": 2,
-          "station_nr": 3,
-          "station_name": "Berlin Charlottenburg",
-          "ankunft": "14:14",
-          "abfahrt": "14:15",
-          "versp_standard": 0
-        },
-        {
-          "halt_nummer": 3,
-          "station_nr": 5,
-          "station_name": "Potsdam Park Sanssouci",
-          "ankunft": "14:35",
-          "abfahrt": "14:36",
-          "versp_standard": 0
-        },
-        {
-          "halt_nummer": 4,
-          "station_nr": 4,
-          "station_name": "Potsdam Hbf",
-          "ankunft": "14:50",
-          "abfahrt": null,
-          "versp_standard": 0
-        }
-      ],
-      "ausfaelle": [],
       "zusatzhalt": [
         {
-          "datum": "2026-01-05",
-          "halt_nummer": 5,
-          "station_nr": 6,
-          "station_name": "Potsdam Charlottenhof",
-          "zeit": "14:42",
-          "abfahrt": "14:43"
+          "datum": "2026-06-06",
+          "halt_nummer": 2,
+          "station_nr": 5,
+          "station_name": "Talbrück",
+          "zeit": "07:25",
+          "abfahrt": "07:30"
         }
       ]
     }
