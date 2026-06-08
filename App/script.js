@@ -428,44 +428,51 @@ function isFahrtGueltig(fahrt, datum) {
 
 // Berechnet die aktuellen Zeiten unter Berücksichtigung von Ausfällen und Zusatzhaltestellen
 function calculateActualStops(fahrt, startIndex, endIndex, datum) {
-    let halte = [...fahrt.halte];
+    let halte = JSON.parse(JSON.stringify(fahrt.halte)); // deep copy
     
     // Speichere die Start- und End-Haltnummern, bevor wir Änderungen machen
     const startHaltNummer = halte[startIndex].halt_nummer;
     const endHaltNummer = halte[endIndex].halt_nummer;
     
-    // Finde Ausfallhaltestellen für diesen Tag
-    const haltAusfaelleFuerTag = fahrt.ausfaelle.filter(a => a.datum === datum && a.typ === 'halt');
-    
-    // Entferne Ausfallhaltestellen und berechne Zeit-Verschiebungen
-    haltAusfaelleFuerTag.forEach(ausfall => {
-        const haltIndex = halte.findIndex(h => h.halt_nummer === ausfall.halt_nummer);
-        if (haltIndex !== -1) {
-            const entferterHalt = halte[haltIndex];
-            
-            // Berechne die eingesparte Zeit
-            let zeitErsparnis = 0;
-            if (entferterHalt.abfahrt && haltIndex > 0) {
-                const vorherAbfahrt = halte[haltIndex - 1].abfahrt;
-                zeitErsparnis = timeToMinutes(entferterHalt.abfahrt) - timeToMinutes(vorherAbfahrt);
-            }
-            
-            // Entferne den Halt
-            halte.splice(haltIndex, 1);
-            
-            // Verschiebe alle nachfolgenden Zeiten
-            for (let i = haltIndex; i < halte.length; i++) {
-                if (halte[i].ankunft) {
-                    halte[i].ankunft = minutesToTime(timeToMinutes(halte[i].ankunft) - zeitErsparnis);
-                }
-                if (halte[i].abfahrt) {
-                    halte[i].abfahrt = minutesToTime(timeToMinutes(halte[i].abfahrt) - zeitErsparnis);
-                }
-            }
+    // Schritt 0: Datumsbezogene Verspätungen (eigenes Feld, getrennt von ausfaelle)
+    const verspaetungenFuerTag = (fahrt.verspaetungen || []).filter(v => v.datum === datum);
+    verspaetungenFuerTag.forEach(versp => {
+        const haltIndex = halte.findIndex(h => h.halt_nummer === versp.ab_halt_nummer);
+        if (haltIndex === -1) return;
+        const min = versp.minuten || 0;
+        for (let i = haltIndex; i < halte.length; i++) {
+            if (halte[i].ankunft) halte[i].ankunft = minutesToTime(timeToMinutes(halte[i].ankunft) + min);
+            if (halte[i].abfahrt) halte[i].abfahrt = minutesToTime(timeToMinutes(halte[i].abfahrt) + min);
+            if (i === haltIndex) halte[i].versp_standard = (halte[i].versp_standard || 0) + min;
         }
     });
-    
-    // Füge Zusatzhaltestellen für diesen Tag hinzu
+
+    // Schritt 1: Ausfallhaltestellen entfernen
+    const haltAusfaelleFuerTag = fahrt.ausfaelle.filter(a => a.datum === datum && a.typ === 'halt');
+    haltAusfaelleFuerTag.forEach(ausfall => {
+        const haltIndex = halte.findIndex(h => h.halt_nummer === ausfall.halt_nummer);
+        if (haltIndex === -1) return;
+
+        const entferterHalt = halte[haltIndex];
+
+        // Zeitersparnis = Aufenthaltsdauer des entfernten Halts
+        // = Differenz zwischen Abfahrt dieses Halts und Ankunft dieses Halts
+        // Falls kein Aufenthalt: 0 Min (Durchfahrt)
+        let zeitErsparnis = 0;
+        if (entferterHalt.ankunft && entferterHalt.abfahrt) {
+            zeitErsparnis = timeToMinutes(entferterHalt.abfahrt) - timeToMinutes(entferterHalt.ankunft);
+        }
+
+        halte.splice(haltIndex, 1);
+
+        // Nachfolgende Zeiten nur um den Aufenthalt verkürzen, NICHT um die Fahrzeit
+        for (let i = haltIndex; i < halte.length; i++) {
+            if (halte[i].ankunft) halte[i].ankunft = minutesToTime(timeToMinutes(halte[i].ankunft) - zeitErsparnis);
+            if (halte[i].abfahrt) halte[i].abfahrt = minutesToTime(timeToMinutes(halte[i].abfahrt) - zeitErsparnis);
+        }
+    });
+
+    // Schritt 2: Zusatzhalte einfügen
     const zusatzFuerTag = fahrt.zusatzhalt.filter(z => z.datum === datum);
     zusatzFuerTag.forEach(zusatz => {
         const neuerHalt = {
@@ -476,29 +483,35 @@ function calculateActualStops(fahrt, startIndex, endIndex, datum) {
             abfahrt: zusatz.abfahrt || zusatz.zeit,
             versp_standard: 0
         };
-        
-        // Berechne Zeitzusatz für nachfolgende Haltestellen
-        let zeitZusatz = 2; // Standardmäßig 2 Minuten für Zusatzhalt
-        
-        // Füge den Halt an der richtigen Position ein
-        const insertIndex = halte.findIndex(h => h.halt_nummer > zusatz.halt_nummer);
+
+        // Zeitzusatz = Aufenthaltsdauer des Zusatzhalts (Abfahrt - Ankunft)
+        const zeitZusatz = timeToMinutes(neuerHalt.abfahrt) - timeToMinutes(neuerHalt.ankunft);
+
+        // Einfügen nach Abfahrtszeit (nicht nach halt_nummer, da Nummern nach Ausfall nicht mehr passen)
+        const insertIndex = halte.findIndex(h => {
+            const refZeit = h.abfahrt || h.ankunft;
+            return refZeit && timeToMinutes(refZeit) > timeToMinutes(neuerHalt.ankunft);
+        });
+
         if (insertIndex !== -1) {
             halte.splice(insertIndex, 0, neuerHalt);
-            
-            // Verschiebe nachfolgende Zeiten
+            // Nachfolgende Halte um die Aufenthaltsdauer verschieben
             for (let i = insertIndex + 1; i < halte.length; i++) {
-                if (halte[i].ankunft) {
-                    halte[i].ankunft = minutesToTime(timeToMinutes(halte[i].ankunft) + zeitZusatz);
-                }
-                if (halte[i].abfahrt) {
-                    halte[i].abfahrt = minutesToTime(timeToMinutes(halte[i].abfahrt) + zeitZusatz);
-                }
+                if (halte[i].ankunft) halte[i].ankunft = minutesToTime(timeToMinutes(halte[i].ankunft) + zeitZusatz);
+                if (halte[i].abfahrt) halte[i].abfahrt = minutesToTime(timeToMinutes(halte[i].abfahrt) + zeitZusatz);
             }
+        } else {
+            halte.push(neuerHalt);
         }
     });
-    
-    // Gib nur die Halte zwischen Start und End zurück (nutze halt_nummer, nicht Index!)
-    return halte.filter(h => h.halt_nummer >= startHaltNummer && h.halt_nummer <= endHaltNummer);
+
+    // Gib nur die Halte zwischen Start und End zurück (nach Zeit gefiltert, nicht halt_nummer)
+    return halte.filter(h => {
+        const hZeit = timeToMinutes(h.abfahrt || h.ankunft);
+        const startZeit = timeToMinutes(halte.find(x => x.halt_nummer === startHaltNummer)?.abfahrt || halte[0].abfahrt);
+        const endZeit = timeToMinutes(halte.find(x => x.halt_nummer === endHaltNummer)?.ankunft || halte[halte.length-1].ankunft);
+        return hZeit >= startZeit && hZeit <= endZeit;
+    });
 }
 
 // Konvertiert Zeit zu Minuten
@@ -696,12 +709,13 @@ function createStopsHtmlNew(halte) {
         
         // Nutze station_name falls vorhanden, sonst station_nr
         const stationName = halt.station_name || haltestellenMap[halt.station_nr] || `Station ${halt.station_nr}`;
+        const steigHtml = halt.steig ? `<div class="stop-steig">Steig ${halt.steig}</div>` : '';
         
         html += `
             <div class="stop-item">
                 <div class="stop-number">${halt.halt_nummer}</div>
                 <div class="stop-details">
-                    <div class="stop-station">${stationName}</div>
+                    <div class="stop-station">${stationName} ${steigHtml}</div>
                     <div class="stop-times">${timesDisplay}</div>
                 </div>
                 ${delayHtml}
@@ -717,4 +731,3 @@ function formatDate(dateString) {
     const date = new Date(dateString + 'T00:00:00');
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('de-DE', options);
-}

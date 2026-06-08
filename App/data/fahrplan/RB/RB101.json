@@ -11,7 +11,14 @@
       "uhrzeit": "06:05",
       "gueltig_von": "2026-06-01",
       "gueltig_bis": "2026-06-31",
-      "wochentage": ["Mo", "Mi", "Do", "Fr", "Sa", "So"],
+      "wochentage": [
+        "Mo",
+        "Mi",
+        "Do",
+        "Fr",
+        "Sa",
+        "So"
+      ],
       "halte": [
         {
           "halt_nummer": 1,
@@ -19,7 +26,8 @@
           "station_name": "Schwamm Stadt Hauptbahnhof",
           "ankunft": null,
           "abfahrt": "06:05",
-          "versp_standard": 0
+          "versp_standard": 0,
+          "steig": "1"
         },
         {
           "halt_nummer": 2,
@@ -27,7 +35,8 @@
           "station_name": "Moosheim Bahnhof",
           "ankunft": "06:25",
           "abfahrt": "06:30",
-          "versp_standard": 0
+          "versp_standard": 0,
+          "steig": "1"
         },
         {
           "halt_nummer": 3,
@@ -35,18 +44,38 @@
           "station_name": "Grünfels",
           "ankunft": "06:55",
           "abfahrt": null,
-          "versp_standard": 0
+          "versp_standard": 0,
+          "steig": "1"
         }
       ],
       "ausfaelle": [],
-      "zusatzhalt": []
+      "zusatzhalt": [],
+      "verspaetungen": [
+        {
+          "datum": "2026-06-07",
+          "ab_halt_nummer": 2,
+          "minuten": 10
+        },
+        {
+          "datum": "2026-06-07",
+          "ab_halt_nummer": 3,
+          "minuten": -7
+        }
+      ]
     },
     {
       "variant": "2",
       "uhrzeit": "07:00",
       "gueltig_von": "2026-06-01",
       "gueltig_bis": "2026-06-31",
-      "wochentage": ["Mo", "Mi", "Do", "Fr", "Sa", "So"],
+      "wochentage": [
+        "Mo",
+        "Mi",
+        "Do",
+        "Fr",
+        "Sa",
+        "So"
+      ],
       "halte": [
         {
           "halt_nummer": 1,
@@ -54,7 +83,8 @@
           "station_name": "Grünfels",
           "ankunft": null,
           "abfahrt": "07:00",
-          "versp_standard": 0
+          "versp_standard": 0,
+          "steig": "1"
         },
         {
           "halt_nummer": 2,
@@ -62,7 +92,8 @@
           "station_name": "Moosheim Bahnhof",
           "ankunft": "07:20",
           "abfahrt": "07:25",
-          "versp_standard": 0
+          "versp_standard": 0,
+          "steig": "1"
         },
         {
           "halt_nummer": 3,
@@ -70,7 +101,8 @@
           "station_name": "Schwamm Stadt Hauptbahnhof",
           "ankunft": "07:45",
           "abfahrt": null,
-          "versp_standard": 0
+          "versp_standard": 0,
+          "steig": "1"
         }
       ],
       "ausfaelle": [
@@ -87,9 +119,11 @@
           "station_nr": 5,
           "station_name": "Talbrück",
           "zeit": "07:25",
-          "abfahrt": "07:30"
+          "abfahrt": "07:30",
+          "steig": "1"
         }
-      ]
+      ],
+      "verspaetungen": []
     }
   ]
 }
